@@ -9,7 +9,7 @@
 # @option opts [String] :* each other key going as tag option
 # @param [Proc] content cat content
 class Bulmacomp::NavbarComponent < ViewComponent::Base
-  def initialize(brand: nil,  **opts)
+  def initialize(brand: nil, **opts)
     @brand = brand
     @opts = opts
     @opts[:class] = ['navbar', opts[:class]]
@@ -23,7 +23,8 @@ class Bulmacomp::NavbarComponent < ViewComponent::Base
   end
 
   def navbar_brand
-    tag.div safe_join([link_to(@brand, root_path, data_turbo_frame: "yield", class: 'navbar-item'), navbar_burger]), class: 'navbar-brand'
+    tag.div safe_join([link_to(@brand, root_path, data_turbo_frame: 'yield', class: 'navbar-item'), navbar_burger]),
+            class: 'navbar-brand'
   end
 
   def navbar_menu
@@ -32,7 +33,8 @@ class Bulmacomp::NavbarComponent < ViewComponent::Base
 
   # return [String] content section if a content is present
   def navbar_burger
-    tag.a burger_row * 3, class: "navbar-burger", aria_label: "menu", aria_expanded: "false", data_action: "page#toggleMenu"
+    tag.a burger_row * 3, class: 'navbar-burger', aria_label: 'menu', aria_expanded: 'false',
+                          data_action: 'page#toggleMenu'
   end
 
   # return [String] footer section if a footer is present

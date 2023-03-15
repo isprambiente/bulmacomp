@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bulmacomp/version'
 require 'bulmacomp/engine'
 require 'view_component'

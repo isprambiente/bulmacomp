@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'lib/bulmacomp/version'
 
 Gem::Specification.new do |spec|

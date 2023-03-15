@@ -43,19 +43,21 @@
 #   </nav>
 #
 # Options, list and content are mixable.
-class Bulmacomp::BreadcrumbComponent < ViewComponent::Base
-  def initialize(*list, **opts)
-    @list = list
-    @opts = { class: 'breadcrumb', aria: { label: 'breadcrumbs' } }.merge(opts)
-  end
+module Bulmacomp
+  class BreadcrumbComponent < ViewComponent::Base
+    def initialize(*list, **opts)
+      @list = list
+      @opts = { class: 'breadcrumb', aria: { label: 'breadcrumbs' } }.merge(opts)
+    end
 
-  # @return [String] html_safe breadcrumb
-  def call
-    tag.nav tag.ul(ul_content), **@opts
-  end
+    # @return [String] html_safe breadcrumb
+    def call
+      tag.nav tag.ul(ul_content), **@opts
+    end
 
-  # @return [Text], safe join of list arguments and proc content
-  def ul_content
-    safe_join(@list.map { |e| tag.li(e) }.<<(content))
+    # @return [Text], safe join of list arguments and proc content
+    def ul_content
+      safe_join(@list.map { |e| tag.li(e) }.<<(content))
+    end
   end
 end

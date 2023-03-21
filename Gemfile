@@ -13,6 +13,7 @@ gemspec
 # end
 
 group :development do
+  gem 'bundle-audit', require: false
   gem 'rubocop', require: false
   gem 'rubocop-capybara', require: false
   gem 'rubocop-rails', require: false

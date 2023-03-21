@@ -75,6 +75,7 @@ GEM
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
+    brakeman (5.4.1)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -200,9 +201,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  brakeman
   bulmacomp!
   capybara
   debug
+  rubocop
   rubocop-capybara
   rubocop-rails
   view_component

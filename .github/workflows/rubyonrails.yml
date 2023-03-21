@@ -23,6 +23,7 @@ jobs:
         uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4 # v1.127.0
         with:
           bundler-cache: true
+          ruby-version: '3.1'
       # Add or replace database setup steps here
 
       # Add or replace test runners here

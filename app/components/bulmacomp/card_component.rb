@@ -22,6 +22,7 @@ module Bulmacomp
   #   </div>
   class CardComponent < ViewComponent::Base
     def initialize(title: nil, image: nil, footer: nil, **opts)
+      super
       @title = title
       @image = image
       @footer = footer

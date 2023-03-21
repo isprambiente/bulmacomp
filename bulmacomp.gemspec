@@ -10,7 +10,8 @@ Gem::Specification.new do |spec|
   spec.homepage    = 'https://github.com/MdreW/bulmacomp'
   spec.summary     = "Rails 'View Components' for Bulma"
   spec.description = 'Collection of view components for bulma css framework'
-  spec.license     = 'MIT'
+  spec.required_ruby_version = '>= 3.0.0'
+  spec.license = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
   # to allow pushing to a single host or delete this section to allow pushing to any host.

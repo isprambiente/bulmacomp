@@ -24,11 +24,16 @@ module Bulmacomp
   #     </a>
   #   </nav>
   class PanelComponent < ViewComponent::Base
-    # @param [Hash] opts options to generate content
-    # @option opts [String] :title panel title
-    # @option opts [String] :* each other key going as tag option, default is class: 'breadcrumb', aria_label: 'breadcrumbs'
-    # @yield [optional] panel content
+    # @param [Hash] opts
+    #   options to generate content
+    # @option opts [String] :title
+    #   panel title
+    # @option opts [String] :*
+    #   each other key going as tag option, default is class: 'breadcrumb', aria_label: 'breadcrumbs'
+    # @yield [optional]
+    #   panel content
     def initialize(title: nil, **opts)
+      super
       @title = title
       @opts = opts
       @opts[:class] = 'panel' unless @opts[:class]

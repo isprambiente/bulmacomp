@@ -26,6 +26,7 @@ module Bulmacomp
     # @option opts [String] :* each key going as tag option, default is class: 'modal'
     # @yield [optional] modal content
     def initialize(**opts)
+      super
       @opts = { class: 'modal' }.merge opts
     end
 

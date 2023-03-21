@@ -39,11 +39,15 @@ module Bulmacomp
   #    </ul>
   #   </nav>
   class BreadcrumbComponent < ViewComponent::Base
-    # @param [Array<String>] list Any number of Objects to push into this collection
-    # @param [Hash] opts options to generate content
-    # @option opts [String] :* each other key going as tag option, default is class: 'breadcrumb', aria_label: 'breadcrumbs'
+    # @param [Array<String>] list
+    #   Any number of Objects to push into this collection
+    # @param [Hash] opts
+    #   options to generate content
+    # @option opts [String] :*
+    #   each other key going as tag option, default is class: 'breadcrumb', aria_label: 'breadcrumbs'
     # @yield [optional] card content
     def initialize(*list, **opts)
+      super
       @list = list
       @opts = { class: 'breadcrumb', aria: { label: 'breadcrumbs' } }.merge(opts)
     end

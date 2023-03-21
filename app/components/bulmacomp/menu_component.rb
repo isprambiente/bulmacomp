@@ -65,6 +65,7 @@ module Bulmacomp
     # @option opts [String] :*
     #   each key going as tag option, default is class: 'menu'
     def initialize(*list, **opts)
+      super
       @list = list
       @opts = { class: 'menu' }.merge(opts)
     end

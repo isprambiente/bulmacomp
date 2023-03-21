@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version     = Bulmacomp::VERSION
   spec.authors     = ['MDreW']
   spec.email       = ['andrea.ranaldi@gmail.com']
-  spec.homepage    = 'https://github.com/MdreW/bulmacomp'
+  spec.homepage    = 'https://github.com/isprambiente/bulmacomp'
   spec.summary     = "Rails 'View Components' for Bulma"
   spec.description = 'Collection of view components for bulma css framework'
   spec.required_ruby_version = '>= 3.0.0'
@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
   # to allow pushing to a single host or delete this section to allow pushing to any host.
-  spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+  # spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/MdreW/bulmacomp'

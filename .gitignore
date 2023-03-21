@@ -1,6 +1,7 @@
 /.ruby-*
 /.bundle/
 /.yardoc/
+/bulmacomp-*.gem
 /doc/
 /log/*.log
 /pkg/

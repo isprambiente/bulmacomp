@@ -36,14 +36,15 @@ module Bulmacomp
     #   if TRUE add close button in title
     # @option opts [Hash] close_option
     #   parameters to close button tag
-    # @option opts [String] :* 
+    # @option opts [String] :*
     #   each key going as article tag option, default is class: 'message'
     # @yield [optional] message content
     def initialize(title: nil, close: false, close_option: {}, **opts)
+      super
       @title = title
       @close = close
       @close_option = close_option
-      @opts = {class: 'message'}.merge opts
+      @opts = { class: 'message' }.merge opts
     end
 
     # return [String] generated bulma message
@@ -55,7 +56,7 @@ module Bulmacomp
     def header
       ret = []
       ret << tag.p(@title) if @title.present?
-      ret << tag.button(**{class: 'delete', aria: {label: 'delete'}}.merge(@close_option)) if @close
+      ret << tag.button(**{ class: 'delete', aria: { label: 'delete' } }.merge(@close_option)) if @close
       tag.div safe_join(ret), class: 'message-header' if ret.present?
     end
   end

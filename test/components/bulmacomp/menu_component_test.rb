@@ -10,23 +10,28 @@ module Bulmacomp
     end
 
     test 'menu with title' do
-      render_inline Bulmacomp::MenuComponent.new('test')
+      entries = ['test']
+      render_inline Bulmacomp::MenuComponent.new(entries)
       assert_selector 'aside.menu p.menu-label', text: 'test'
     end
 
     test 'menu with entries' do
-      render_inline Bulmacomp::MenuComponent.new('test', ['uno'])
+      entries = ['test', ['uno']]
+      render_inline Bulmacomp::MenuComponent.new(entries)
       assert_selector 'aside.menu ul li', text: 'uno'
     end
 
     test 'menu with sub menu' do
-      render_inline Bulmacomp::MenuComponent.new('test', [%w[uno due]])
+      entries = [['test', %w[uno due]]]
+      render_inline Bulmacomp::MenuComponent.new(entries)
+      assert_selector 'aside.menu ul li', text: 'test'
       assert_selector 'aside.menu ul li', text: 'uno'
       assert_selector 'aside.menu ul li ul li', text: 'due'
     end
 
     test 'menu with sub sub menu' do
-      render_inline Bulmacomp::MenuComponent.new('test', [['uno', %w[due tre]]])
+      entries = ['test', [['uno', %w[due tre]]]]
+      render_inline Bulmacomp::MenuComponent.new(entries)
       assert_selector 'aside.menu ul li', text: 'uno'
       assert_selector 'aside.menu ul li ul li', text: 'due'
       assert_selector 'aside.menu ul li ul li ul li', text: 'tre'
@@ -39,7 +44,8 @@ module Bulmacomp
 
     test 'mixed content' do
       text = '<p id="yield">test</p>'.html_safe
-      render_inline Bulmacomp::MenuComponent.new('test', ['uno']).with_content(text)
+      entries = ['test', ['uno']]
+      render_inline Bulmacomp::MenuComponent.new(entries).with_content(text)
       assert_selector 'aside.menu', text: 'test'
       assert_selector 'aside.menu ul li', text: 'uno'
       assert_selector 'aside.menu p#yield', text: 'test'

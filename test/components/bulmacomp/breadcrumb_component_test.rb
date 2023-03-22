@@ -4,6 +4,10 @@ require 'test_helper'
 
 module Bulmacomp
   class BreadcrumbComponentTest < ViewComponent::TestCase
+    def entries
+      %w[uno due]
+    end
+
     # test empty breadcrumb
     test 'empty breadcrumb' do
       render_inline Bulmacomp::BreadcrumbComponent.new
@@ -12,7 +16,7 @@ module Bulmacomp
 
     # test breadcrumb with element list
     test 'test breadcrumb with elements' do
-      render_inline Bulmacomp::BreadcrumbComponent.new('uno', 'due')
+      render_inline Bulmacomp::BreadcrumbComponent.new(entries)
       assert_selector 'nav.breadcrumb ul li', text: 'uno'
       assert_selector 'nav.breadcrumb ul li', text: 'due'
     end
@@ -26,7 +30,7 @@ module Bulmacomp
 
     # test breadcrumb full optioned
     test 'test breadcrumb full optioned' do
-      render_inline Bulmacomp::BreadcrumbComponent.new('uno', id: 'ok').with_content('<li>due</li>'.html_safe)
+      render_inline Bulmacomp::BreadcrumbComponent.new(['uno'], id: 'ok').with_content('<li>due</li>'.html_safe)
       assert_selector 'nav#ok.breadcrumb ul li', text: 'uno'
       assert_selector 'nav#ok.breadcrumb ul li', text: 'due'
     end

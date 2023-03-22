@@ -11,7 +11,7 @@ module Bulmacomp
   # @example menu with title and entries
   #   title = 'Menu title'
   #   menu  = [link_to('first entry', '#'), link_to('second entry', '#')
-  #   render Bulmacomp::MenuComponent.new(title,menu)
+  #   render Bulmacomp::MenuComponent.new(menu, title: title)
   #
   #   <aside class='menu'>
   #     <p class='menu-label'>Menu title</p>
@@ -22,7 +22,8 @@ module Bulmacomp
   #   </aside>
   #
   # @example menu with title and annidate entries
-  #   = render Bulmacomp::MenuComponent.new('Uno',['Due',['Tre','Quattro']])
+  #   entries = ['Uno',['Due',['Tre','Quattro']]]
+  #   = render Bulmacomp::MenuComponent.new(entries)
   #
   #   <aside class='menu'>
   #     <p class='menu-label'>Uno</p>
@@ -46,7 +47,8 @@ module Bulmacomp
   #   </aside>
   #
   # @example with mixed conetent (arguments before)
-  #   = render Bulmacomp::MenuComponent.new('argument content',['argoument menu']) do
+  #   entries = ['argument content',['argoument menu']]
+  #   = render Bulmacomp::MenuComponent.new(entries) do
   #     %p yield content
   #
   #   <aside class='menu'>
@@ -64,7 +66,7 @@ module Bulmacomp
     #   options to generate content
     # @option opts [String] :*
     #   each key going as tag option, default is class: 'menu'
-    def initialize(*list, **opts)
+    def initialize(list = [], **opts)
       super
       @list = list
       @opts = { class: 'menu' }.merge(opts)

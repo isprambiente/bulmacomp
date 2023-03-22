@@ -11,16 +11,9 @@ module Bulmacomp
   #     </ul>
   #   </nav>
   #
-  # @example Empty breadcrumb with option:
-  #   render Bulmacomp::BreadcrumbComponent.new(class: 'breadcrumb one', data: {entity: 'one'})
-  #
-  #   <nav class="breadcrumb one" aria-label="breadcrumbs" data-entity='one'>
-  #     <ul>
-  #     </ul>
-  #   </nav>
-  #
   # @example Breadcrumb with list element:
-  #   render Bulmacomp::BreadcrumbComponent.new(link_to('one','#'), link_to('two','#'))
+  #   entries = link_to('one','#'), link_to('two','#')
+  #   render Bulmacomp::BreadcrumbComponent.new(entries)
   #   <nav class="breadcrumb" aria-label="breadcrumbs">
   #     <ul>
   #       <li><a href="#">one</a></li>
@@ -46,7 +39,7 @@ module Bulmacomp
     # @option opts [String] :*
     #   each other key going as tag option, default is class: 'breadcrumb', aria_label: 'breadcrumbs'
     # @yield [optional] card content
-    def initialize(*list, **opts)
+    def initialize(list = [], **opts)
       super
       @list = list
       @opts = { class: 'breadcrumb', aria: { label: 'breadcrumbs' } }.merge(opts)

@@ -29,14 +29,13 @@ module Bulmacomp
     # @option opts [String] :title
     #   panel title
     # @option opts [String] :*
-    #   each other key going as tag option, default is class: 'breadcrumb', aria_label: 'breadcrumbs'
+    #   each other key going as tag option, default is class: 'panel'
     # @yield [optional]
     #   panel content
     def initialize(title: nil, **opts)
       super
       @title = title
-      @opts = opts
-      @opts[:class] = 'panel' unless @opts[:class]
+      @opts = {class: 'panel'}.merge(opts)
     end
 
     # return [String] html_safe generated bulma panel

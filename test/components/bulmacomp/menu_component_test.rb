@@ -10,28 +10,28 @@ module Bulmacomp
     end
 
     test 'menu with title' do
-      entries = ['test']
-      render_inline Bulmacomp::MenuComponent.new(entries)
+      elements = ['test']
+      render_inline Bulmacomp::MenuComponent.new(elements: elements)
       assert_selector 'aside.menu p.menu-label', text: 'test'
     end
 
-    test 'menu with entries' do
-      entries = ['test', ['uno']]
-      render_inline Bulmacomp::MenuComponent.new(entries)
+    test 'menu with elements' do
+      elements = ['test', ['uno']]
+      render_inline Bulmacomp::MenuComponent.new(elements: elements)
       assert_selector 'aside.menu ul li', text: 'uno'
     end
 
     test 'menu with sub menu' do
-      entries = [['test', %w[uno due]]]
-      render_inline Bulmacomp::MenuComponent.new(entries)
+      elements = [['test', %w[uno due]]]
+      render_inline Bulmacomp::MenuComponent.new(elements: elements)
       assert_selector 'aside.menu ul li', text: 'test'
       assert_selector 'aside.menu ul li', text: 'uno'
       assert_selector 'aside.menu ul li ul li', text: 'due'
     end
 
     test 'menu with sub sub menu' do
-      entries = ['test', [['uno', %w[due tre]]]]
-      render_inline Bulmacomp::MenuComponent.new(entries)
+      elements = ['test', [['uno', %w[due tre]]]]
+      render_inline Bulmacomp::MenuComponent.new(elements: elements)
       assert_selector 'aside.menu ul li', text: 'uno'
       assert_selector 'aside.menu ul li ul li', text: 'due'
       assert_selector 'aside.menu ul li ul li ul li', text: 'tre'
@@ -44,8 +44,8 @@ module Bulmacomp
 
     test 'mixed content' do
       text = '<p id="yield">test</p>'.html_safe
-      entries = ['test', ['uno']]
-      render_inline Bulmacomp::MenuComponent.new(entries).with_content(text)
+      elements = ['test', ['uno']]
+      render_inline Bulmacomp::MenuComponent.new(elements: elements).with_content(text)
       assert_selector 'aside.menu', text: 'test'
       assert_selector 'aside.menu ul li', text: 'uno'
       assert_selector 'aside.menu p#yield', text: 'test'

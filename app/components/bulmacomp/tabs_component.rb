@@ -64,7 +64,7 @@ module Bulmacomp
 
     # @return [Text], safe join of elements arguments and proc content
     def ul_content
-      safe_join([@elements.map { |e| tag.li(e) },content])
+      safe_join([@elements.map { |e| tag.li(e) }, content])
     end
   end
 end

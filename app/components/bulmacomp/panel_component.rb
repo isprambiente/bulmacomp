@@ -35,7 +35,7 @@ module Bulmacomp
     def initialize(title: nil, **opts)
       super
       @title = title
-      @opts = {class: 'panel'}.merge(opts)
+      @opts = { class: 'panel' }.merge(opts)
     end
 
     # return [String] html_safe generated bulma panel

@@ -6,7 +6,7 @@ module Bulmacomp
   class TabsComponentTest < ViewComponent::TestCase
     # @return [Array] example elements array
     def elements
-      [1,2,3]
+      [1, 2, 3]
     end
 
     # @return [String] example yield content

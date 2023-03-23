@@ -35,10 +35,10 @@ module Bulmacomp
     # @param [Hash] opts
     #   options to generate content
     # @param [Array<String>] elements
-    #   Objects to push into this breadcrumbs collection
+    #   array of elements to push into this breadcrumbs collection
     # @option opts [String] :*
     #   each other key going as tag option, default is class: 'breadcrumb', aria_label: 'breadcrumbs'
-    # @yield [optional] card content
+    # @yield [optional] breadcrumb content
     def initialize(elements: [], **opts)
       super
       @elements = elements

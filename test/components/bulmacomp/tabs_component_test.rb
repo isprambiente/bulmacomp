@@ -4,6 +4,16 @@ require 'test_helper'
 
 module Bulmacomp
   class TabsComponentTest < ViewComponent::TestCase
+    # @return [Array] example elements array
+    def elements
+      [1, 2, 3]
+    end
+
+    # @return [String] example yield content
+    def yield_text
+      '<li class="active">4</li>'.html_safe
+    end
+
     # empty tabs
     test 'empty tabs' do
       render_inline Bulmacomp::TabsComponent.new
@@ -13,7 +23,7 @@ module Bulmacomp
 
     # tabs with element
     test 'tabs with elements' do
-      render_inline Bulmacomp::TabsComponent.new(elements: [1, 2, 3])
+      render_inline Bulmacomp::TabsComponent.new(elements: elements)
       assert_selector 'div.tabs ul li', text: '1'
       assert_selector 'div.tabs ul li', text: '2'
       assert_selector 'div.tabs ul li', text: '3'
@@ -21,17 +31,17 @@ module Bulmacomp
 
     # tabs with yield
     test 'tabs with yield' do
-      render_inline Bulmacomp::TabsComponent.new.with_content('<li class="active">1</li>'.html_safe)
-      assert_selector 'div.tabs ul li.active', text: '1'
+      render_inline Bulmacomp::TabsComponent.new.with_content(yield_text)
+      assert_selector 'div.tabs ul li.active', text: '4'
     end
 
     # full tabs
     test 'full tabs' do
-      render_inline Bulmacomp::TabsComponent.new(elements: [1, 2],
-                                                 id: 'ok').with_content('<li class="active">3</li>'.html_safe)
+      render_inline Bulmacomp::TabsComponent.new(elements: elements, id: 'ok').with_content(yield_text)
       assert_selector 'div.tabs ul li', text: '1'
       assert_selector 'div.tabs ul li', text: '2'
-      assert_selector 'div.tabs ul li.active', text: '3'
+      assert_selector 'div.tabs ul li', text: '3'
+      assert_selector 'div.tabs ul li.active', text: '4'
     end
   end
 end

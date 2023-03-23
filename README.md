@@ -1,8 +1,10 @@
 # Bulmacomp
-[https://viewcomponent.org/](ViewComponent) collection for [https://bulma.io/](bulma) css framework
+[![Maintainability](https://api.codeclimate.com/v1/badges/b44e91b4f303eb7962b3/maintainability)](https://codeclimate.com/github/isprambiente/bulmacomp/maintainability)
+[![Rails Test](https://github.com/isprambiente/bulmacomp/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/isprambiente/bulmacomp/actions/workflows/rubyonrails.yml)
+[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](https://www.rubydoc.info/github/isprambiente/bulmacomp)
 
-## Usage
-How to use my plugin.
+
+[https://viewcomponent.org/](ViewComponent) collection for [https://bulma.io/](bulma) css framework
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -20,6 +22,9 @@ Or install it yourself as:
 ```bash
 $ gem install bulmacomp
 ```
+
+## Usage
+How to use my plugin.
 
 ## Contributing
 Contribution directions go here.

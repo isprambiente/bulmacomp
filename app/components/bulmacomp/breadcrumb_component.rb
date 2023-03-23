@@ -11,9 +11,9 @@ module Bulmacomp
   #     </ul>
   #   </nav>
   #
-  # @example Breadcrumb with list element:
-  #   entries = link_to('one','#'), link_to('two','#')
-  #   render Bulmacomp::BreadcrumbComponent.new(entries)
+  # @example Breadcrumb with elements:
+  #   elements = [link_to('one','#'), link_to('two','#')]
+  #   render Bulmacomp::BreadcrumbComponent.new(elements: elements)
   #   <nav class="breadcrumb" aria-label="breadcrumbs">
   #     <ul>
   #       <li><a href="#">one</a></li>
@@ -32,16 +32,16 @@ module Bulmacomp
   #    </ul>
   #   </nav>
   class BreadcrumbComponent < ViewComponent::Base
-    # @param [Array<String>] list
-    #   Any number of Objects to push into this collection
     # @param [Hash] opts
     #   options to generate content
+    # @param [Array<String>] elements
+    #   array of elements to push into this breadcrumbs collection
     # @option opts [String] :*
     #   each other key going as tag option, default is class: 'breadcrumb', aria_label: 'breadcrumbs'
-    # @yield [optional] card content
-    def initialize(list = [], **opts)
+    # @yield [optional] breadcrumb content
+    def initialize(elements: [], **opts)
       super
-      @list = list
+      @elements = elements
       @opts = { class: 'breadcrumb', aria: { label: 'breadcrumbs' } }.merge(opts)
     end
 
@@ -50,9 +50,9 @@ module Bulmacomp
       tag.nav tag.ul(ul_content), **@opts
     end
 
-    # @return [Text], safe join of list arguments and proc content
+    # @return [Text], safe join of elements arguments and proc content
     def ul_content
-      safe_join(@list.map { |e| tag.li(e) }.<<(content))
+      safe_join(@elements.map { |e| tag.li(e) }.<<(content))
     end
   end
 end

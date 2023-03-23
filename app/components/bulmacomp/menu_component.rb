@@ -8,10 +8,10 @@ module Bulmacomp
   #
   #   <aside class='menu'></aside>
   #
-  # @example menu with title and entries
+  # @example menu with title and elements
   #   title = 'Menu title'
-  #   menu  = [link_to('first entry', '#'), link_to('second entry', '#')
-  #   render Bulmacomp::MenuComponent.new(menu, title: title)
+  #   elements  = [link_to('first entry', '#'), link_to('second entry', '#')
+  #   render Bulmacomp::MenuComponent.new(elements: elements, title: title)
   #
   #   <aside class='menu'>
   #     <p class='menu-label'>Menu title</p>
@@ -21,9 +21,9 @@ module Bulmacomp
   #     </ul>
   #   </aside>
   #
-  # @example menu with title and annidate entries
-  #   entries = ['Uno',['Due',['Tre','Quattro']]]
-  #   = render Bulmacomp::MenuComponent.new(entries)
+  # @example menu with title and annidate elements
+  #   elements = ['Uno',['Due',['Tre','Quattro']]]
+  #   = render Bulmacomp::MenuComponent.new(elements: elements)
   #
   #   <aside class='menu'>
   #     <p class='menu-label'>Uno</p>
@@ -47,8 +47,8 @@ module Bulmacomp
   #   </aside>
   #
   # @example with mixed conetent (arguments before)
-  #   entries = ['argument content',['argoument menu']]
-  #   = render Bulmacomp::MenuComponent.new(entries) do
+  #   elements = ['argument content',['argoument menu']]
+  #   = render Bulmacomp::MenuComponent.new(elements: elements) do
   #     %p yield content
   #
   #   <aside class='menu'>
@@ -60,22 +60,22 @@ module Bulmacomp
   #   </aside>
   #
   class MenuComponent < ViewComponent::Base
-    # @param [Array<String,Array>] list
-    #   each entry is used to generate menu entries throug {first_level} method
     # @param [Hash] opts
     #   options to generate content
+    # @option opts [Array<String>] elements
+    #   each entry is used to generate menu elements throug {first_level} method
     # @option opts [String] :*
     #   each key going as tag option, default is class: 'menu'
-    def initialize(list = [], **opts)
+    def initialize(elements: [], **opts)
       super
-      @list = list
+      @elements = elements
       @opts = { class: 'menu' }.merge(opts)
     end
 
     # Generate an html safe string with full bulma menu.
     # @return [String] html string menu
     def call
-      tag.aside first_level(@list) + content, **@opts
+      tag.aside first_level(@elements) + content, **@opts
     end
 
     # Generate a string with all bulma menu element from `values` param.
@@ -84,7 +84,7 @@ module Bulmacomp
     # * as `p.menu-title` tag if is not an Array
     # * as {map_menu} if is an Array
     # @return [String]
-    # @param [Array] values menu entries
+    # @param [Array] values menu elements
     # @example
     #   Bulmacomp::MenuComponent.new().first_level(['Uno',['Due','Tre']])
     #
@@ -95,14 +95,14 @@ module Bulmacomp
       )
     end
 
-    # Generate a string with the "real" menu entries (no title)
-    # from 'values' param. The menu entries are incapsulated in a ul tag
+    # Generate a string with the "real" menu elements (no title)
+    # from 'values' param. The menu elements are incapsulated in a ul tag
     #
     # Each element in 'values' is mapped:
     # * as li tag if is not an Array
     # * as {sub_menu} if is an Array
     # @return [String]
-    # @param [Array] values menu entries
+    # @param [Array] values menu elements
     # @example
     #   Bulmacomp::MenuComponent.new().map_menu(['Uno',['Due','Tre']])
     #
@@ -115,7 +115,7 @@ module Bulmacomp
     # The first array element is used as ancescor, other element
     # are used to make the sub menu with {map_menu} method.
     # @return [String]
-    # @param [Array] values sub-menu entries
+    # @param [Array] values sub-menu elements
     # @example
     #   Bulmacomp::MenuComponent.new().sub_menu(['Uno',['Due','Tre']])
     #

@@ -3,16 +3,16 @@
 module Bulmacomp
   # Make an HTML strucrure for a bulma tabs
   #
-  # @example Empty tabs
+  # @example
   #   render Bulmacomp::TabsComponent.new()
   #
   #   <div class="tabs">
   #     <ul></ul>
   #   </div>
   #
-  # @example Tabs with elements
-  #   entries = [link_to('one','#'), link_to('two','#')]
-  #   render Bulmacomp::TabsComponent.new(entries: entries)
+  # @example tabs with elements
+  #   elements = [link_to('one','#'), link_to('two','#')]
+  #   render Bulmacomp::TabsComponent.new(elements: elements)
   #
   #   <div class="tabs">
   #     <ul>
@@ -21,62 +21,50 @@ module Bulmacomp
   #     </ul>
   #   </div>
   #
-  # @example yield
+  # @example tabs with yield content
   #   = render Bulmacomp::TabsComponent.new() do
-  #     <li class="active"><a href='#'>one</a></li>
+  #     %li some text
   #
   #   <div class="tabs">
   #     <ul>
-  #       <li class="active"><a href='#'>one</a></li>
+  #       <li>some text</li>
   #     </ul>
   #   </div>
   #
-  # @example Full tabs
-  #   entries = [link_to('one','#'), link_to('two','#')]
-  #   = render Bulmacomp::TabsComponent.new(entries: entries, id: 'ok') do
-  #     <li class="active"><a href='#'>three</a></li>
+  # @example tabs with full options
+  #   elements = [link_to('one','#'), link_to('two','#')]
+  #   = render Bulmacomp::TabsComponent.new(elements: elements, id: 'ok') do
+  #     %li some text
   #
   #   <div class="tabs" id="ok">
   #     <ul>
   #       <li><a href='#'>one</li>
   #       <li><a href='#'>two</li>
-  #       <li class="active"><a href='#'>three</a></li>
+  #       <li>some text</li>
   #     </ul>
   #   </div>
   class TabsComponent < ViewComponent::Base
     # @param [Hash] opts
     #   options to generate content
-    # @option opts [Array<String>] element
-    #   elements list for build tabs
+    # @param [Array<String>] elements
+    #   array of elements for tabs collection
     # @option opts [String] :*
-    #   each key going as tag option, default is class: 'tabs'
-    # @yield [optional] modal content
+    #   each other key going as tag option, default is class: 'tabs'
+    # @yield [optional] tabs content
     def initialize(elements: [], **opts)
       super
       @elements = elements
-      @opts = { class: 'tabs' }.merge opts
+      @opts = { class: 'tabs' }.merge(opts)
     end
 
-    # Generate safe string with full bulma tabs
-    # @return [String] html_safe generated bulma tabs
+    # @return [String] html_safe tabs
     def call
-      tag.div ulify, **@opts
+      tag.div tag.ul(ul_content), **@opts
     end
 
-    # generate a ul tag with map_elements and content
-    # @return [String]
-    def ulify
-      tag.ul safe_join([map_elements, content])
-    end
-
-    # Map elements in a li tag
-    # @return [String]
-    # @example
-    #   Bulmacomp::TabsComponent.new(elements).map_elements
-    #
-    #   <li>1</li><li>2</li><li>3</li>
-    def map_elements
-      safe_join(@elements.map { |e| tag.li e })
+    # @return [Text], safe join of elements arguments and proc content
+    def ul_content
+      safe_join([@elements.map { |e| tag.li(e) },content])
     end
   end
 end

@@ -1,6 +1,8 @@
 # Bulmacomp
 [![Maintainability](https://api.codeclimate.com/v1/badges/b44e91b4f303eb7962b3/maintainability)](https://codeclimate.com/github/isprambiente/bulmacomp/maintainability)
-![Rails Test](https://github.com/isprambiente/bulmacomp/actions/workflows/rubyonrails.yml/badge.svg)
+[![Rails Test](https://github.com/isprambiente/bulmacomp/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/isprambiente/bulmacomp/actions/workflows/rubyonrails.yml)
+[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](https://www.rubydoc.info/github/isprambiente/bulmacomp)
+
 
 [https://viewcomponent.org/](ViewComponent) collection for [https://bulma.io/](bulma) css framework
 

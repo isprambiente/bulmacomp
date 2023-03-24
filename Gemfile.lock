@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bulmacomp (0.1.2)
+    bulmacomp (1.0.0)
       rails (>= 7.0)
 
 GEM

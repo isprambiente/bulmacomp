@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bulmacomp (1.0.1)
+    bulmacomp (1.0.2)
       rails (>= 7.0)
       view_component (>= 2.76)
 
@@ -217,4 +217,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   2.4.6
+   2.4.8

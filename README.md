@@ -17,7 +17,11 @@ Bulmacomp provide a "view component" for each bulma component:
 * [Navbar](https://bulma.io/documentation/components/navbar/) - [Bulmacomp::NavbarCompoent](https://www.rubydoc.info/github/isprambiente/bulmacomp/Bulmacomp/NavbarComponent)
 * [Pagination](https://bulma.io/documentation/components/pagination/) - [Bulmacomp::PaginationComponent](https://www.rubydoc.info/github/isprambiente/bulmacomp/Bulmacomp/PaginationComponent)
 * [Panel](https://bulma.io/documentation/components/panel/) - [Bulmacomp::PanelComponent](https://www.rubydoc.info/github/isprambiente/bulmacomp/Bulmacomp/PanelComponent)
-* [Tabs](https://bulma.io/documentation/components/tabs/) - [Bulmacomp::TabsComponent](https://www.rubydoc.info/github/isprambiente/bulmacomp/Bulmacomp/tabsComponent)
+* [Tabs](https://bulma.io/documentation/components/tabs/) - [Bulmacomp::TabsComponent](https://www.rubydoc.info/github/isprambiente/bulmacomp/Bulmacomp/TabsComponent)
+
+and  generic rails components
+* [Turbo Frame](https://turbo.hotwired.dev/handbook/frames) - [Bulmacomp::TurboFrameComponent](https://www.rubydoc.info/github/isprambiente/bulmacomp/Bulmacomp/TurboFrameComponent)
+ 
 
 ## Installation
 Add this line to your application's Gemfile:

@@ -19,7 +19,7 @@ module Bulmacomp
     end
 
     # turbo frame without icon
-    test 'no icon' do 
+    test 'no icon' do
       render_inline Bulmacomp::TurboFrameComponent.new(icon: nil)
       assert_selector 'turbo-frame:empty', text: nil
     end

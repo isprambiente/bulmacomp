@@ -52,7 +52,7 @@ module Bulmacomp
 
     # @return [String] html_safe navbar
     def call
-      tag.nav safe_join([navbar_brand, navbar_menu]), @opts
+      tag.nav safe_join([navbar_brand, navbar_menu]), **@opts
     end
 
     # @return [String] html_safe navbar-brand tag

@@ -57,8 +57,10 @@ module Bulmacomp
 
     # @return [String] html_safe navbar-brand tag
     def navbar_brand
+      return if @brand.blank?
+
       tag.div safe_join([link_to(@brand, root_path, data_turbo_frame: 'yield', class: 'navbar-item'), navbar_burger]),
-        class: 'navbar-brand' if @brand.present?
+              class: 'navbar-brand'
     end
 
     # @return [String] html_safe navbar-menu tag

@@ -12,13 +12,13 @@ module Bulmacomp
     end
 
     test 'navbar brand' do
-      #render_inline Bulmacomp::NavbarComponent.new(brand: 'test')
-      #assert_selector 'nav.navbar .navbar-brand a.navbar-item', count: 1, text: 'test'
+      # render_inline Bulmacomp::NavbarComponent.new(brand: 'test')
+      # assert_selector 'nav.navbar .navbar-brand a.navbar-item', count: 1, text: 'test'
       # todo: how to test a path without the site?
     end
 
     test 'navbar-content' do
-      render_inline Bulmacomp::NavbarComponent.new().with_content('test')
+      render_inline Bulmacomp::NavbarComponent.new.with_content('test')
       assert_selector 'nav.navbar .navbar-menu', text: 'test'
     end
   end

@@ -65,7 +65,7 @@ module Bulmacomp
 
     # @return [String] html_safe navbar-menu tag
     def navbar_menu
-      tag.div(content, class: 'navbar-menu')
+      tag.div(content, class: 'navbar-menu', data: {target: 'page-menu'})
     end
 
     # return [String] html_safe navbar-burger link

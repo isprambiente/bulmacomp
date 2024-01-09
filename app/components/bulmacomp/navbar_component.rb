@@ -71,13 +71,15 @@ module Bulmacomp
 
     # @return [String] html_safe navbar-menu tag
     def navbar_menu
-      tag.div(safe_join([@navbar_start, content, @navbar_end]), class: 'navbar-menu', data: { target: 'page-menu' })
+      tag.div(safe_join([@navbar_start, content, @navbar_end]), class: 'navbar-menu', data: { page_target: 'menu' })
     end
 
     # @return [String] html_safe navbar-burger link
     def navbar_burger
-      tag.a tag.span(aria_hidden: true) * 3, class: 'navbar-burger', aria_label: 'menu', aria_expanded: 'false',
-                                             data_action: 'page#toggleMenu'
+      aria = {expanded: 'false', label: 'menu'}
+      data = {action: 'click->page#toggleMenu'}
+      role = 'button'
+      tag.a tag.span(aria_hidden: true) * 3, class: 'navbar-burger', aria:, data:, role:
     end
   end
 end

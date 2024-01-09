@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency 'rails', '>= 7.0'
-  spec.add_dependency 'view_component', '>= 2.76'
+  spec.add_dependency 'view_component', '>= 3.9.0'
 end

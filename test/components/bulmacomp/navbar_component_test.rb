@@ -21,5 +21,15 @@ module Bulmacomp
       render_inline Bulmacomp::NavbarComponent.new.with_content('test')
       assert_selector 'nav.navbar .navbar-menu', text: 'test'
     end
+
+    test 'navbar-start' do
+      render_inline Bulmacomp::NavbarComponent.new(navbar_start: 'test')
+      assert_selector 'nav.navbar .navbar-menu .navbar-start', text: 'test'
+    end
+
+    test 'navbar-end' do
+      render_inline Bulmacomp::NavbarComponent.new(navbar_start: 'test')
+      assert_selector 'nav.navbar .navbar-menu .navbar-start', text: 'test'
+    end
   end
 end

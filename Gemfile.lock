@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bulmacomp (1.0.3)
+    bulmacomp (1.0.4)
       rails (>= 7.0)
       view_component (>= 2.76)
 
